@@ -1,24 +1,17 @@
 "use client";
 
-type InputProps = {
-  placeholder?: string;
-  value?: string;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  type?: string;
-};
+import React from "react";
+
+interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {}
 
 export default function Input({
-  placeholder,
-  value,
-  onChange,
-  type = "text",
+  ...props
 }: InputProps) {
   return (
     <input
-      type={type}
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
+      {...props}
+      className="input"
     />
   );
 }
